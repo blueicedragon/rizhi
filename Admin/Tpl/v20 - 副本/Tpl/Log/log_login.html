@@ -1,0 +1,153 @@
+<extend name="./Tpl/v20/Tpl/loglayout.html"/>
+
+<block name="head">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="./Tpl/Public/styles/pagination.css" />
+    <link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/jscal2.css"/>
+    <link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/border-radius.css"/>
+    <link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/win2k.css"/>
+    <title>登录日志 - {$Think.lang.Public_Admin} - {$Think.lang.Public_name}</title>
+</block>
+
+<block name="content">
+
+    <div id="i_contents" class="i_nicescroll">
+        <div class="i_column">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="javascript:;">
+                        <svg class="i_icon" aria-hidden="true">
+                            <use xlink:href="#i_icon-home"></use>
+                        </svg>
+                        首页
+                    </a>
+                </li>
+                <li><a href="#">日志管理</a></li>
+                <li class="active">登录日志</li>
+            </ol>
+
+            <div class="i_pos_right"></div>
+        </div>
+        <!-- 栏目导航 -->
+
+        <div class="i_current_column">
+            <span class="i_bold">登录日志</span>
+        </div>
+        <!-- end 当前栏目 -->
+
+        <form class="form-inline i_form_sp" role="form" action="./index.php?m={$Think.MODULE_NAME}&a=log_login" method="post">
+            <div class="i_rows">
+                <div class="form-group i_statics">
+                    <p class="form-control-static">登录用户名</p>
+                    <input type="text" class="form-control i_inp_fixed" autocomplete="off" value="{$arr['name']}" name="name">
+                </div>
+                <div class="form-group i_statics">
+                    <p class="form-control-static">登录IP</p>
+                    <input type="text" class="form-control i_inp_fixed" autocomplete="off" value="{$arr['ip']}" name="ip">
+                </div>
+                <div class="form-group i_statics">
+                    <p class="form-control-static">日期</p>
+                    <input type="text" class="form-control i_inp_fixed" name="starttime" value="{$arr.starttime}" placeholder="开始日期" id="start_addtime">
+                </div>
+                <div class="form-group i_statics">
+                    <p class="form-control-static">到</p>
+                    <input type="text" class="form-control i_inp_fixed" name="endtime" value="{$arr.endtime}" placeholder="结束日期" id="end_addtime">
+                </div>
+                <!-- end 选择时间 -->
+                <div class="form-group i_statics">
+                    <button type="submit" class="btn btn-default i_btn_fixed">搜索</button>
+                </div>
+            </div>
+        </form>
+        <!-- end search form -->
+
+        <eq name="list" value="">
+            <div class="i_nodata">
+                <svg class="i_icon" aria-hidden="true">
+                    <use xlink:href="#i_icon-msnui-info-inverse"></use>
+                </svg>
+                该项目下没有数据
+            </div>
+            <!-- end 无数据 -->
+        </eq>
+        <neq name="list" value="">
+            <form id="cAll_form" action="./index.php?m={$Think.MODULE_NAME}&a=delete" method="post">
+                <table class="table table-bordered table-hover i_table_left">
+                    <thead>
+                    <tr>
+                        <th width="100">ID</th>
+                        <th>登录用户名</th>
+                        <th width="150">登录IP</th>
+                        <th width="120">登录状态</th>
+                        <th style="text-align: center" width="165">登录日期</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="list" id="vo" key="k">
+                        <tr>
+                            <td>{$k}</td>
+                            <td>{$vo.loginName}</td>
+                            <td>{$vo.loginIp}</td>
+                            <td>
+                                <if condition="$vo.loginStatus == 1 ">
+                                    用户名错误
+                                    <elseif condition="$vo.loginStatus == 2" />
+                                    密码错误
+                                    <else/>
+                                    登录成功
+                                </if>
+                            </td>
+                            <td title="登录日期：{$vo.loginDate|date='Y-m-d H:i:s',###}">
+                                {$vo.loginDate|date='Y-m-d H:i:s',###}
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <td colspan="5" class="i_nopadding_lr i_pos_relative">
+                            <div class="pagination">
+                                {$page}
+                            </div>
+                            <!-- end 分页 -->
+                        </td>
+                    </tr>
+                    </tfoot>
+
+                </table>
+                <!-- end 数据 -->
+            </form>
+        </neq>
+
+    </div>
+
+</block>
+
+<block name="scripts">
+    <script type="text/javascript" src="./Tpl/Public/scripts/calendar/calendar.js"></script>
+    <script type="text/javascript" src="./Tpl/Public/scripts/calendar/lang/en.js"></script>
+    <script type="text/javascript" src="./Tpl/v20/Public/js/del.js"></script>
+    <script>
+        Calendar.setup({
+            weekNumbers: true,
+            inputField : "start_addtime",
+            trigger    : "start_addtime",
+            dateFormat: "%Y-%m-%d",
+            showTime: false,
+            minuteStep: 1,
+            onSelect   : function() {this.hide();}
+        });
+        Calendar.setup({
+            weekNumbers: true,
+            inputField : "end_addtime",
+            trigger    : "end_addtime",
+            dateFormat: "%Y-%m-%d",
+            showTime: false,
+            minuteStep: 1,
+            onSelect   : function() {this.hide();}
+        });
+    </script>
+
+</block>

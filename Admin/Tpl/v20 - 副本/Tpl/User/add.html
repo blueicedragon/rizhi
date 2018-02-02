@@ -1,0 +1,119 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/jscal2.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/border-radius.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/win2k.css"/>
+
+	<script type="text/javascript" src="./Tpl/Public/scripts/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="./Tpl/v20/Public/js/upload.js"></script>
+	<link rel="stylesheet" href="./Tpl/v20/Public/css/upload.css">
+	<style>
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			left:0px;
+		}
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			top: 43px;
+		}
+	</style>
+</block>
+
+<block name="content">
+
+	<div id="i_contents" class="i_nicescroll">
+
+        <div class="i_column">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="./index.php?m=Index&a=index">
+                        <svg class="i_icon" aria-hidden="true">
+                            <use xlink:href="#i_icon-home"></use>
+                        </svg>
+                        首页
+                    </a>
+                </li>
+                <li><a href="javascript:;">用户管理</a></li>
+                <li class="active">添加用户</li>
+            </ol>
+
+            <div class="i_pos_right"></div>
+        </div>
+        <!-- 栏目导航 -->
+
+		<div class="i_current_column2">
+
+			<div class="i_titles">
+            <span class="i_titles_l">
+
+                <a href="./index.php?m={$Think.MODULE_NAME}&a=lists">
+                    <svg class="i_icon" aria-hidden="true">
+                        <use xlink:href="#i_icon-back"></use>
+                    </svg>
+                    返回
+                </a>
+
+            </span>
+				<span class="i_titles_r">
+
+            </span>
+			</div>
+			<!-- end title -->
+		
+		<form class="form-horizontal i_new_form" action="./index.php?m={$Think.MODULE_NAME}&a=insert" method="post">
+
+			<div class="form-group">
+				<label class="col-xs-2">姓名</label>
+                <div class="col-xs-10">
+				    <input type="text" class="form-control" name="name" id="name">
+                </div>
+			</div>
+            <div class="form-group">
+                <label class="col-xs-2">用户名</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2">密码</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" name="password" id="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2"></label>
+                <div class="col-xs-10">
+                    <button type="submit" class="btn i_new_btn">添加</button>
+                </div>
+            </div>
+            <!-- end form element-->
+		</form>
+
+		</div>
+
+	</div>
+
+</block>
+
+<block name="scripts">
+	<script type="text/javascript" src="./Tpl/Public/kindedito/kindeditor.js"></script>
+	<script type="text/javascript" src="./Tpl/Public/kindedito/lang/zh_CN.js"></script>
+	<script type="text/javascript" src="./Tpl/Public/scripts/color.js"></script>
+<script>
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('#editor_id', {
+            allowFileManager : true,
+            urlType : 'domain'
+        });
+    });
+	$(document).ready(function(){
+		$('.btn').click(function(){
+			if($('#title').val()==""){
+				alert('请填写标题');
+				return false;
+			}
+		})
+	});
+
+</script>
+</block>

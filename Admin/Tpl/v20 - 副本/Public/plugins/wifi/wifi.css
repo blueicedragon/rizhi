@@ -1,0 +1,23 @@
+/* wifi */
+.wifi{font-weight: normal; width:78px;}
+.wifi .wifi-icon{
+    background-image: url(wifi.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 15px;
+    height:18px;
+    vertical-align: middle;
+}
+.wifi label{
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left:3px;
+    font-weight: normal;
+}
+.wifi s{ text-decoration: none;font-weight: normal;}
+.wifi label{ color:#FFF; }
+.wifi.strong .wifi-icon{ background-position: 0 0; }
+.wifi.middle .wifi-icon{ background-position: 0 -18px; }
+.wifi.low .wifi-icon{ background-position: 0 -36px; }
+.wifi.nowifi .wifi-icon{ background-position: 0 -54px; }

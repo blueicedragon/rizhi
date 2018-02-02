@@ -1,0 +1,142 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/jscal2.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/border-radius.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/win2k.css"/>
+
+	<script type="text/javascript" src="./Tpl/Public/scripts/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="./Tpl/v20/Public/js/upload.js"></script>
+	<link rel="stylesheet" href="./Tpl/v20/Public/css/upload.css">
+	<style>
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			left:0px;
+		}
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			top: 43px;
+		}
+	</style>
+</block>
+
+<block name="content">
+
+	<div id="i_contents" class="i_nicescroll">
+
+		<div class="i_column">
+			<ol class="breadcrumb">
+				<li>
+					<a href="./index.php?m=Index&a=index">
+						<svg class="i_icon" aria-hidden="true">
+							<use xlink:href="#i_icon-home"></use>
+						</svg>
+						首页
+					</a>
+				</li>
+				<li><a href="javascript:;">渠道管理</a></li>
+				<li class="active">渠道详情</li>
+			</ol>
+
+			<div class="i_pos_right"></div>
+		</div>
+		<!-- 栏目导航 -->
+
+		<div class="i_current_column2">
+
+			<div class="i_titles">
+            <span class="i_titles_l">
+
+                <a href="./index.php?m={$Think.MODULE_NAME}&a=lists">
+                    <svg class="i_icon" aria-hidden="true">
+                        <use xlink:href="#i_icon-back"></use>
+                    </svg>
+                    返回
+                </a>
+
+            </span>
+				<span class="i_titles_r">
+
+            </span>
+			</div>
+			<!-- end title -->
+
+
+		<div class="i_single_page">
+
+            <span class="i_titles2">{$show.name}</span>
+            <!-- end title -->
+
+			<ul class="i_txt_list">
+				<li>
+					<span class="i_txt_list_l">姓名</span>
+					<span class="i_txt_list_r">{$show.name}</span>
+				</li>
+				<li>
+					<span class="i_txt_list_l">账号</span>
+					<span class="i_txt_list_r">{$show.username}</span>
+				</li>
+				<li>
+					<span class="i_txt_list_l">添加时间</span>
+					<span class="i_txt_list_r">{$show.regtime|date="Y-m-d",###}</span>
+				</li>
+			</ul>
+			<!-- end 信息列表 -->
+
+		</div>
+		<!-- end 单页 -->
+		</div>
+	</div>
+
+</block>
+
+<block name="scripts">
+<script type="text/javascript" src="./Tpl/Public/scripts/ajaxfileupload.js"></script>
+<script type="text/javascript" src="./Tpl/Public/scripts/upload.js"></script>
+
+<script charset="utf-8" src="./Tpl/Public/kindedito/kindeditor.js"></script>
+<script charset="utf-8" src="./Tpl/Public/kindedito/lang/zh_CN.js"></script>
+<script type="text/javascript" src="./Tpl/Public/scripts/color.js"></script>
+
+<script type="text/javascript" src="./Tpl/Public/scripts/calendar/calendar.js"></script>
+<script type="text/javascript" src="./Tpl/Public/scripts/calendar/lang/en.js"></script>
+
+<script>
+$(document).ready(function(){
+	$('.submit').click(function(){
+		if($('#pid').val()==0){
+			alert('请选择类别');
+			return false;
+		}
+	})
+})
+
+
+//添加的JS验证
+//类型改成JS加层样式来做
+$(document).ready(function(){
+		$('.L_switching li').click(function(){
+			$('.L_switching li').removeClass('on');
+			$(this).addClass('on');
+			$('.add_info').hide();
+			$('.add_info').eq($('.L_switching li').index($(this))).show();
+		})
+});
+Calendar.setup({
+	weekNumbers: true,
+	inputField : "start_addtime",
+	trigger    : "start_addtime",
+	dateFormat: "%Y-%m-%d %H:%M:%S",
+	showTime: false,
+	minuteStep: 1,
+	onSelect   : function() {this.hide();}
+});
+Calendar.setup({
+    weekNumbers: true,
+    inputField : "end_addtime",
+    trigger    : "end_addtime",
+    dateFormat: "%Y-%m-%d %H:%M:%S",
+    showTime: false,
+    minuteStep: 1,
+    onSelect   : function() {this.hide();}
+});
+</script>
+</block>

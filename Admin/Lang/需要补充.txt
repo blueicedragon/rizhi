@@ -1,0 +1,9 @@
+fr 法文
+ru 俄罗斯
+en-us 英文
+zh-cn  中文简体
+zh-tw  中文繁体
+ja    日文
+ko    韩文
+it   意大利
+de 德文

@@ -1,0 +1,112 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+
+</block>
+
+<block name="content">
+
+    <div id="i_contents" class="i_nicescroll">
+
+
+
+        <div class="i_column g-margin clearfix">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="./index.php?m=Index&a=index">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-home"></use>
+                        </svg>
+                        首页
+                    </a>
+                </li>
+                <li class="active">修改管理员密码</li>
+            </ol>
+
+            <div class="i_column_right"></div>
+        </div>
+        <!-- 栏目导航 -->
+
+
+        <div class="i_current_column g-margin">
+
+            <span class="i_bold">修改密码</span>
+
+        </div>
+        <!-- end 当前栏目 -->
+
+        <form action="./index.php?m={$Think.MODULE_NAME}&a=admin_password" method="post">
+            <dl class="pop-form default-form clearfix">
+                <dd>
+                    <span class="l">原始密码</span>
+                    <span class="r">
+                        <input type="password" class="form-control max" name="oldPassword" id="oldPassword" value="">
+                    </span>
+                </dd>
+
+                <dd>
+                    <span class="l">新密码</span>
+                    <span class="r">
+                        <input type="password" class="form-control max" name="newPassword" id="newPassword" value="">
+                    </span>
+                </dd>
+
+                <dd>
+                    <span class="l">确认密码</span>
+                    <span class="r">
+                        <input type="password" class="form-control max" name="password" id="password" value="">
+                    </span>
+                </dd>
+
+                <dd>
+                    <span class="l">&nbsp;</span>
+                    <span class="r">
+                        <button type="submit" class="btn btn-success">更新</button>
+                    </span>
+                </dd>
+
+
+
+            </dl>
+        </form>
+
+    </div>
+    <!-- end 内容 -->
+
+    <div class="i_menu2_on i_menu2_on1">
+        <i class="fa fa-outdent"></i>
+    </div>
+    <!-- 触发菜单2收缩/展开 -->
+
+    <div class="i_menu2_on i_menu2_on2">
+        <i class="fa fa-outdent fa-indent"></i>
+    </div>
+    <!-- 触发菜单2收缩/展开 -->
+
+</block>
+
+<block name="scripts">
+    <script>
+        $(document).ready(function(){
+
+            $("button.btn").click(function (){
+                if($("#oldPassword").val()==""){
+                    alert('旧密码不可为空');
+                    return false;
+                }
+                if($("#newPassword").val()==""){
+                    alert('新密码不可为空');
+                    return false;
+                }
+                if($("#password").val()==""){
+                    alert('确认新密码不可为空');
+                    return false;
+                }
+                if($("#newPassword").val() != $("#password").val() ){
+                    alert('新密码和确认密码不一致');
+                    return false;
+                }
+            });
+        })
+    </script>
+</block>

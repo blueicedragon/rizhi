@@ -1,0 +1,112 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/jscal2.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/border-radius.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/win2k.css"/>
+
+	<script type="text/javascript" src="./Tpl/Public/scripts/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="./Tpl/v20/Public/js/upload.js"></script>
+	<link rel="stylesheet" href="./Tpl/v20/Public/css/upload.css">
+	<style>
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			left:0px;
+		}
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			top: 43px;
+		}
+	</style>
+</block>
+
+<block name="content">
+
+	<div id="i_contents" class="i_nicescroll">
+
+		<div class="i_column">
+			<ol class="breadcrumb">
+				<li>
+					<a href="./index.php?m=Index&a=index">
+						<svg class="i_icon" aria-hidden="true">
+							<use xlink:href="#i_icon-home"></use>
+						</svg>
+						首页
+					</a>
+				</li>
+				<li><a href="javascript:;">渠道管理</a></li>
+				<li class="active">修改一级渠道</li>
+			</ol>
+
+			<div class="i_pos_right"></div>
+		</div>
+		<!-- 栏目导航 -->
+        <div class="i_current_column2">
+
+            <div class="i_titles">
+            <span class="i_titles_l">
+
+                <a href="./index.php?m={$Think.MODULE_NAME}&a=lists">
+                    <svg class="i_icon" aria-hidden="true">
+                        <use xlink:href="#i_icon-back"></use>
+                    </svg>
+                    返回
+                </a>
+
+            </span>
+                <span class="i_titles_r">
+
+            </span>
+            </div>
+            <!-- end title -->
+
+		<form class="form-horizontal i_new_form" action="./index.php?m={$Think.MODULE_NAME}&a=save" method="post">
+
+			<div class="form-group">
+				<label class="col-xs-2">项目名称</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" name="title" id="title" value="{$show.title}">
+				</div>
+			</div>
+
+            <div class="form-group">
+                <label class="col-xs-2"></label>
+                <div class="col-xs-10">
+                    <button type="submit" class="btn i_new_btn">修改</button>
+                </div>
+            </div>
+            <!-- end form element-->
+			<input name="id" value="{$show.id}" type="hidden" />
+		</form>
+        </div>
+        <!-- end current column2 -->
+
+	</div>
+    <!-- end contents -->
+
+</block>
+
+<block name="scripts">
+
+<script>
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            if($('#name').val()==""){
+                alert('请填写渠道名称');
+                return false;
+            }
+            if($('#username').val()==""){
+                alert('请填写渠道用户名');
+                return false;
+            }
+            if($('#password').val()==""){
+                alert('请填写渠道密码');
+                return false;
+            }
+            if($('#mobile').val()==""){
+                alert('请填写渠道手机号');
+                return false;
+            }
+        })
+    });
+
+</script>
+</block>

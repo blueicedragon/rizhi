@@ -1,0 +1,151 @@
+@charset "utf-8";
+.index_product_ad{
+width:1240px;
+margin:0px auto;
+margin-top:30px;
+height:600px;
+}
+.index_product_ad .title{
+font-size:18px;
+width:1240px;
+height:30px;
+line-height:30px;
+}
+.index_product_ad ul{
+width:1240px;
+float:left;
+height:560px;
+margin-top:10px;
+position:relative;
+}
+.index_product_ad ul li{
+position:absolute;
+top:0px;
+left:0px;
+z-index:0;
+width:248px;
+height:278px;
+}
+
+.index_product_ad ul li.l1{
+width:488px;
+height:558px;
+top:0px;
+left:0px;
+z-index:6;
+border:1px #E6E6E6 solid;
+}
+.index_product_ad ul li.l2{
+top:0px;
+left:489px;
+z-index:5;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+height:279px;
+}
+.index_product_ad ul li.l3{
+top:0px;
+left:738px;
+z-index:4;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+height:279px;
+}
+.index_product_ad ul li.l4{
+top:0px;
+left:987px;
+z-index:3;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+height:279px;
+}
+
+.index_product_ad ul li.l5{
+top:280px;
+left:489px;
+z-index:2;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+}
+.index_product_ad ul li.l6{
+top:280px;
+left:738px;
+z-index:1;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+}
+.index_product_ad ul li.l7{
+top:280px;
+left:987px;
+z-index:0;
+border:1px #FFFFFF solid;
+border-bottom:1px #E6E6E6 solid;
+border-top:1px #E6E6E6 solid;
+border-right:1px #E6E6E6 solid;
+}
+.index_product_ad ul li:hover{
+z-index:100;
+border-color:#F38200;
+cursor:pointer;
+}
+.index_product_ad ul li a{
+display:block;
+}
+.index_product_ad ul li.l1 img{
+width:488px;
+height:558px;
+}
+.index_product_ad ul li.l2 img,
+.index_product_ad ul li.l3 img,
+.index_product_ad ul li.l4 img,
+.index_product_ad ul li.l5 img,
+.index_product_ad ul li.l6 img,
+.index_product_ad ul li.l7 img
+{
+position:absolute;
+z-index:1;
+width:248px;
+height:248px;
+bottom:0px;
+left:0px;
+}
+
+
+.index_product_ad ul li strong{
+color:#656565;
+position:absolute;
+z-index:2;
+top:30px;
+left:20px;
+font-size:15px;
+}
+
+.index_product_ad ul li em{
+color:#656565;
+position:absolute;
+z-index:3;
+top:55px;
+left:20px;
+font-size:12px;
+font-style:normal;
+}
+.index_product_ad ul li small{
+
+position:absolute;
+z-index:3;
+top:245px;
+left:20px;
+font-size:12px;
+font-style:normal;
+color:#CC0000;
+}

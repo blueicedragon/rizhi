@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/* global */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,img{margin:0;padding:0;}
+table{ border-collapse:collapse; border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{*font-size:100%;}
+legend{color:#000;}
+form{
+padding:0px;
+margin:0px;
+display:inline;
+}
+body{
+font-size:12px;
+	font:12px/1.5 arial,helvetica,clean,sans-serif;
+	color:#000;
+	}
+.hide{ display:none;}
+a{color:#000;text-decoration:none;transition: all 0.4s ease;background-color .15s linear, color .15s linear}
+a:hover{ text-decoration:none;}
+/******************************/
+/* 删除图标颜色*/
+tbody td .fa-trash:hover{
+color:#990000;
+}
+/* 修改图标颜色*/
+tbody td .fa-pencil:hover{
+color:#FF9900;
+}
+
+/* 友情链接 外链 图标颜色*/
+tbody td .fa-external-link:hover{
+color:#009900;
+}
+.f_left button{
+	transition: all 0.4s ease;
+}
+.li_submit button{
+    transition: all 0.4s ease;
+}
+.green {
+    color: #69aa46;
+}
+.gray{
+	color:#999999;
+}

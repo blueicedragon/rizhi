@@ -1,0 +1,126 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/jscal2.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/border-radius.css"/>
+	<link rel="stylesheet" type="text/css" href="./Tpl/Public/scripts/calendar/win2k.css"/>
+
+	<script type="text/javascript" src="./Tpl/Public/scripts/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="./Tpl/v20/Public/js/upload.js"></script>
+	<link rel="stylesheet" href="./Tpl/v20/Public/css/upload.css">
+	<style>
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			left:0px;
+		}
+		.imgUp button.up_Img,.imgUp button.del_Img{
+			top: 43px;
+		}
+	</style>
+</block>
+
+<block name="content">
+
+	<div id="i_contents" class="i_nicescroll">
+
+		<div class="i_column g-margin clearfix">
+			<ol class="breadcrumb">
+				<li>
+					<a href="./index.php?m=Index&a=index">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-home"></use>
+						</svg>
+						首页
+					</a>
+				</li>
+				<li><a href="javascript:;">公告管理</a></li>
+				<li class="active">修改公告</li>
+			</ol>
+
+			<div class="i_column_right">
+
+				<a href="./index.php?m={$Think.MODULE_NAME}&a=lists" class="btn btn-default i_btn_add">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-back"></use>
+					</svg>
+					返回
+				</a>
+
+			</div>
+		</div>
+		<!-- 栏目导航 -->
+
+		<div class="i_current_column g-margin">
+
+			<span class="i_bold">修改公告</span>
+
+		</div>
+		<!-- end 当前栏目 -->
+
+		<form action="./index.php?m={$Think.MODULE_NAME}&a=savelog" method="post">
+			<dl class="pop-form default-form clearfix">
+				<dd>
+					<span class="l">标题</span>
+					<span class="r">
+						<input type="text" class="form-control" name="title" id="title" value="{$show.title}">
+					</span>
+				</dd>
+				<dd class="form-group">
+					<span class="l">所属项目</span>
+					<span class="r">
+						<select name="projectid" id="projectid" class="form-control">
+							<volist name="list" id="vo" key="k">
+								<option value="{$vo.id}" <eq name="show.projectid" value="$vo.id"> selected="selected"</eq>>{$vo.title}</option>
+							</volist>
+						</select>
+					</span>
+				</dd>
+				<dd>
+					<span class="l">工时(小时)</span>
+					<span class="r">
+						<input type="text" class="form-control" name="worktime" id="worktime" value="{$show.worktime}">
+					</span>
+				</dd>
+				<dd>
+					<span class="l">内容</span>
+					<span class="r">
+						<textarea class="form-control" name="content">{$show.content}</textarea>
+					</span>
+				</dd>
+				<dd>
+					<span class="l">&nbsp;</span>
+					<span class="r">
+						<button type="submit" class="btn btn-success">修改</button>
+					</span>
+				</dd>
+				<!-- end form element-->
+				<input name="id" value="{$show['id']}" type="hidden" />
+			</dl>
+		</form>
+
+	</div>
+
+</block>
+
+<block name="scripts">
+	<script type="text/javascript" src="./Tpl/Public/kindedito/kindeditor.js"></script>
+	<script type="text/javascript" src="./Tpl/Public/kindedito/lang/zh_CN.js"></script>
+	<script type="text/javascript" src="./Tpl/Public/scripts/color.js"></script>
+	<script>
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('#editor_id', {
+                allowFileManager : true,
+                urlType : 'domain'
+            });
+        });
+        $(document).ready(function(){
+            $('.btn').click(function(){
+                if($('#title').val()==""){
+                    alert('请填写标题');
+                    return false;
+                }
+            })
+        });
+
+	</script>
+</block>

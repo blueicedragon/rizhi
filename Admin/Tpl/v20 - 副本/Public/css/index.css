@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* 总框架 */
+#i_contents{
+	background-color: #f3f3f4;
+	padding: 0 0 60px;
+}
+
+/* 公告 */
+.i_gonggao{
+ 	line-height: 30px;
+ 	clear: both;
+ 	background-color: #FFF;
+ 	padding: 0 20px;
+}
+.i_gonggao span{ color: #999;}
+.i_gonggao a{ 
+	margin: 0 15px 0 0; 
+	color: #06C;
+}
+
+/* 文字板块 */
+.i_index_txt{
+	padding:10px;
+	line-height:30px;
+	font-size:20px;
+}
+
+.i_index_txt .i_title{
+    font-size:24px;
+    text-align: center;
+    margin:50px 0 30px;
+}
+
+/* 内容框架 */
+.row{ margin: 0; padding: 0 15px 0 0;}
+
+.i_row_2{ 
+	padding: 20px 0;
+	background-color: #FFF;
+	margin: 0 0 20px; }
+
+.i_index_col{ padding: 20px 0  0 20px;}
+
+#i_user_wrap{ position: relative;}
+
+#i_user{
+	display: block; 
+	width: 60px; 
+	margin: 30px auto 5px;
+}
+.i_user_name{ color: #999; font-size: 14px;}
+.i_user_name em{ color: #09C;}
+
+.i_money{ padding-top: 20px;}
+.i_jine{ padding: 30px 0; color: #666;}
+.i_jine span b{ font-size: 32px; color: #000;}
+.i_link_group { color: #ccc; line-height: 24px; }
+
+a.i_index_btn{
+	display: inline-block;
+	line-height: 24px;
+	background-color: #09C;
+	color: #FFF;
+	padding: 0 20px;
+}
+a.i_index_btn:hover{ 
+	background-color: #28b5d6; 
+	color: #FFF; 
+	text-decoration: none;}
+.i_link_group em{ color: #666; }
+
+.i_row_padd{ padding: 10px; background-color: #FFF;}
+
+.i_titles{ 
+	height: 45px;
+	line-height: 45px;
+	border: #CCC solid;
+	border-width: 0 0 1px;
+	position: relative;
+	clear: both;
+	margin: 0 0 10px;
+}
+.i_titles b{ padding-left: 10px; }
+
+.i_titles_right{ position: absolute; top: 0; right: 0px;}
+.i_list{ float: left; width: 100%; height: 100%; margin: 0 0 20px; color: #999;}
+.i_list dt,.i_list dd{ padding-left: 10px; }
+.i_list dt{ clear: both; margin: 0 0 10px;}
+.i_list dd{ float: left; color: #333; width: 33%; line-height: 32px;}
+.i_list dd a{ color: #333; }
+.i_list dd .fa{ color: #666; margin: 0 5px 0 0;}
+
+.i_right_wrap{
+	background-color: #FFF;
+	padding: 10px 10px 40px;
+	position: relative;}
+.i_more{ position: absolute; top:0; right:0;}
+.i_right_list li{
+	height:22px;
+	line-height: 20px;
+	margin: 0 0 10px;
+	overflow: hidden;
+}
+.i_list_label{
+	display: inline-block;
+	width: 42px;
+	text-align: center;
+	border: #eaedf1 1px solid;
+	margin: 0 10px 0 0;
+}
+#i_copy_right{
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	width: 100%;
+}
+
+.i_menu2_on1{
+    background-color: #f3f3f4;
+}
+
+.i_menu2_on2{
+    background-color: #e5e6e7;
+}
+
+/* 私人信息层 2017年11月16日增加 */
+.i_private_info_list{
+    padding:20px 20px 100px;
+}
+.i_private_info_list dd{
+    line-height:40px;
+    height:40px;
+    clear: both;
+    border:#CCC dotted;
+    border-width:0 0 1px;
+}
+.i_private_info_list dd .i_l,
+.i_private_info_list dd .i_r{
+    display: block;
+    float: left;
+}
+.i_private_info_list dd .i_l{ width:90px; text-align:right; padding:0 10px 0 0;}
+.i_private_info_list dd.big{
+    font-size:15px;
+    color:#333;
+    font-weight:bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+

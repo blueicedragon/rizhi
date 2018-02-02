@@ -1,0 +1,82 @@
+<extend name="./Tpl/v20/Tpl/layout.html"/>
+
+<block name="head">
+
+</block>
+
+<block name="content">
+
+    <div id="i_contents" class="i_nicescroll">
+
+        <div class="i_column">
+            <div class="i_pos_right"></div>
+        </div>
+        <!-- 栏目导航 -->
+
+        <div class="i_current_column">
+            <span>修改密码</span>
+        </div>
+        <!-- end 当前栏目 -->
+
+        <form class="i_short_form i_no_center" action="./index.php?m={$Think.MODULE_NAME}&a=admin_password" method="post">
+
+            <div class="form-group">
+                <label class="i_mar_down">原始密码</label>
+                <input type="password" class="form-control i_form_short" name="oldPassword" id="oldPassword" value="{$show.title}">
+            </div>
+
+            <div class="form-group">
+                <label class="i_mar_down">新密码</label>
+                <input type="password" class="form-control i_form_short" name="newPassword" id="newPassword" value="{$show.title}">
+            </div>
+
+            <div class="form-group">
+                <label class="i_mar_down">确认密码</label>
+                <input type="password" class="form-control i_form_short" name="password" id="password" value="{$show.title}">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">更新</button>
+
+        </form>
+
+    </div>
+    <!-- end 内容 -->
+
+    <div class="i_menu2_on i_menu2_on1">
+        <i class="fa fa-outdent"></i>
+    </div>
+    <!-- 触发菜单2收缩/展开 -->
+
+    <div class="i_menu2_on i_menu2_on2">
+        <i class="fa fa-outdent fa-indent"></i>
+    </div>
+    <!-- 触发菜单2收缩/展开 -->
+
+</block>
+
+<block name="scripts">
+    <script>
+        $(document).ready(function(){
+
+            $("button.btn").click(function (){
+                if($("#oldPassword").val()==""){
+                    alert('旧密码不可为空');
+                    return false;
+                }
+                if($("#newPassword").val()==""){
+                    alert('新密码不可为空');
+                    return false;
+                }
+                if($("#password").val()==""){
+                    alert('确认新密码不可为空');
+                    return false;
+                }
+                if($("#newPassword").val() != $("#password").val() ){
+                    alert('新密码和确认密码不一致');
+                    return false;
+                }
+            });
+        })
+    </script>
+</block>

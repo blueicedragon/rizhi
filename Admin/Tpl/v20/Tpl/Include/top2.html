@@ -1,0 +1,172 @@
+<!-- 顶部开始 -->
+<div id="i_top_main">
+
+    <div class="i_top_logo">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-iconkongzhitai"></use>
+        </svg>
+        <span class="i_ctrl">
+            鸿奥项目统计系统
+        </span>
+    </div>
+    <!-- end 顶部logo -->
+
+    <div id="i_top_left">
+        <div class="i_top_left_nav "><a class="i_nav_first" href="./index.php?m=Index&a=index">首页</a></div>
+
+    </div>
+    <!-- end 顶部左边 -->
+
+    <div id="i_top_right">
+        <span class="wifi js-wifi strong"><i class="wifi-icon"></i><label><s>网络超时</s></label></span>
+
+        <span class="i_tri_poplay">
+
+            {$adminInfo['name']}【用户】
+            <div class="i_top_right_poplay">
+                <dl>
+                    <dd>
+                        <a href="./index.php?m=User&a=admin_edit">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-xiugaimima1"></use>
+                            </svg>
+                            <span>修改密码</span>
+                        </a>
+                        <a href="./index.php?m=Index&a=cache" class="cache">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-qingli1"></use>
+                            </svg>
+                            <span>清理缓存</span>
+                        </a>
+                    </dd>
+                    <dt>
+                        <a href="./index.php?m=Login&a=logout" class="logout">退出登录</a>
+                    </dt>
+                </dl>
+            </div>
+        </span>
+    </div>
+    <!-- end 顶部右边 -->
+
+</div>
+<!-- end 顶部 -->
+
+
+<script>
+$(document).ready(function(){
+    var cache_sub = false;
+    $('a.cache').click(function (){
+        $('.i_top_right_poplay').hide();
+        if(cache_sub === true){
+            return;
+        }
+        cache_sub = true;
+
+        formAction = $(this).attr('href');
+
+        cache_ajax(formAction);
+        cache_sub = false;
+        return false;
+
+    });
+    ///////////////////////////////////
+    function cache_ajax(formAction) {
+        $('.i_g_tips2').show().html('正在清理缓存...');
+        $.ajax({
+            url: formAction,//处理页面地址
+            type: 'GET',
+            data: '',
+            dataType: 'json',
+            async: false,//false为同步  true为异步
+            cache: false,
+            timeout: 3000,
+            error: function () {
+                setTimeout(
+                        function(){
+                            $('.i_g_tips2').show().html('超时,清理失败').addClass('i_Danger');
+                            setTimeout(
+                                    function () {
+                                        $('.i_g_tips2').hide().removeClass('i_Danger');
+                                    }, 1000);
+                            ///////////////////////////////////////
+                        }, 1000);
+                cache_sub = false;
+            },
+            success: function (data) {
+                if (data.status == 0) {
+                    setTimeout(
+                            function(){
+                                $('.i_g_tips2').show().html('清理失败,请重试').addClass('i_Danger');
+                                setTimeout(
+                                        function () {
+                                            $('.i_g_tips2').hide().removeClass('i_Danger');
+                                        }, 1000);
+                                ///////////////////////////////////////
+                            }, 1000);
+                } else {
+                    setTimeout(
+                            function(){
+                                $('.i_g_tips2').show().html('缓存清理完毕').addClass('i_Success');
+                                setTimeout(
+                                        function () {
+                                            $('.i_g_tips2').hide().removeClass('i_Success');
+                                        }, 1000);
+                                ///////////////////////////////////////
+                            }, 1000);
+
+                }
+                cache_sub = false;
+            }
+        });
+    }
+
+    //////////////////////////////////////////////
+
+    //AJAX退出
+
+    $('a.logout').click(function(){
+        formAction = $(this).attr('href');
+        $('.i_g_tips2').show().html('正在退出...');
+        $.ajax({
+            url: formAction,//处理页面地址
+            type: 'GET',
+            data: '',
+            dataType: 'json',
+            cache : false,
+            timeout:3000,
+            error: function(){
+                $('.i_g_tips2').show().html('退出失败').addClass('i_Danger');
+                setTimeout(
+                        function(){
+                            $('.i_g_tips2').hide().removeClass('i_Danger');
+                        }
+                        ,1000);//延时1秒
+            },
+            success: function(data){
+                if(data.status==0){
+                    $('.i_g_tips2').show().html(data.info);
+                    setTimeout(
+                            function(){
+                                $('.i_g_tips2').hide();
+                            }
+                            ,1000);//延时1秒
+                }else{
+                    setTimeout(
+                            function(){
+                                $('.i_g_tips2').show().html(data.info).addClass('i_Success');
+                                setTimeout(
+                                        function () {
+                                            $('.i_g_tips2').hide().removeClass('i_Success');
+                                            location.href="./index.php?m=Login&a=index";
+                                        }, 1000);
+                                ///////////////////////////////////////
+                            }, 1000);
+                }
+            }
+        });
+        return false;
+    });
+    /////////////////////////////////////////////////
+
+});
+</script>
